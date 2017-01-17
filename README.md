@@ -1,3 +1,8 @@
 # cotswold-raspberry-jam
 
-Files for a HC-SR04 tutorial to be given at the Cotswold Raspberry Jam on Saturday 28th January 2017
+A collection of files associated with the Cotswold Raspberry Jam
+
+http://www.cotswoldjam.org/
+
+Jan 2017 hc-sr04 - files for a tutorial on the HC-SR04 distance sensor
+sdimage.sh       - bash script to bulk duplicate SD card images
