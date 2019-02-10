@@ -5,7 +5,6 @@ import neopixel
 from random import randrange
 
 
-# Choose an open pin connected to the Data In of the NeoPixel strip, i.e. board.D18
 # NeoPixels must be connected to D10, D12, D18 or D21 to work.
 pixel_pin = board.D18
 
@@ -13,16 +12,15 @@ pixel_pin = board.D18
 num_pixels = 3
 
 # The order of the pixel colors - RGB or GRB. Some NeoPixels have red and green reversed!
-# For RGBW NeoPixels, simply change the ORDER to RGBW or GRBW.
 ORDER = neopixel.RGB
 
-pixels = neopixel.NeoPixel(pixel_pin, num_pixels, brightness=0.5, auto_write=False,
+pixels = neopixel.NeoPixel(pixel_pin, num_pixels, auto_write=False,
                            pixel_order=ORDER)
 
 
 def wheel(pos):
     # Input a value 0 to 255 to get a color value.
-    # The colours are a transition r - g - b - back to r.
+    # The colours are a transition r -> g -> b -> back to r.
     if pos < 0 or pos > 255:
         r = g = b = 0
     elif pos < 85:
@@ -39,7 +37,7 @@ def wheel(pos):
         r = 0
         g = int(pos*3)
         b = int(255 - pos*3)
-    return (r, g, b) if ORDER == neopixel.RGB or ORDER == neopixel.GRB else (r, g, b, 0)
+    return (r, g, b)
 
 
 def rainbow_cycle(wait):
@@ -91,7 +89,7 @@ while True:
     pixels.show()
     time.sleep(1)
 
-    rainbow_cycle(0.02)    # rainbow cycle with 1ms delay per step
+    rainbow_cycle(0.02)
 
     fade_in_out(0.02)
 
