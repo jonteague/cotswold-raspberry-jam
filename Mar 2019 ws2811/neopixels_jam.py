@@ -1,8 +1,7 @@
-# Simple test for NeoPixels on Raspberry Pi
-import time
 import board
 import neopixel
 from random import randrange
+import time
 
 
 # NeoPixels must be connected to D10, D12, D18 or D21 to work.
@@ -66,7 +65,7 @@ def fade_in_out(wait):
 
 def random_leds(times, wait):
     for i in range(times):
-        for j in range(3):
+        for j in range(num_pixels):
             pixels[j] = (randrange(256),randrange(256),randrange(256))
         pixels.show()
         time.sleep(wait)
