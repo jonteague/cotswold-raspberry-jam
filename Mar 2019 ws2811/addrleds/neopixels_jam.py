@@ -12,7 +12,7 @@ pixel_pin = board.D18
 num_pixels = 3
 
 # The order of the pixel colors - RGB or GRB. Some NeoPixels have red and green reversed!
-ORDER = neopixel.RGB
+ORDER = neopixel.GRB
 
 pixels = neopixel.NeoPixel(pixel_pin, num_pixels, auto_write=False,
                            pixel_order=ORDER)
@@ -73,7 +73,7 @@ def random_leds(times, wait):
 
 
 while True:
-    pixels.fill((255, 0, 0))
+    pixels.fill((255, 0, 0))   # Red = 255, Green = 0, Blue = 0
     pixels.show()
     time.sleep(1)
 
